@@ -5,6 +5,7 @@ using namespace std;
         std::string a=std::to_string(x),b;
         for(int i=a.size();i>=0;--i){
             b.push_back(a[i]);
+            cout<<b<<endl;
         }
         cout<<b;
         return a==b;
