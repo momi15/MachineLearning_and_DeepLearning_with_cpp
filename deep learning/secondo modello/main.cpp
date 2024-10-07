@@ -40,8 +40,8 @@ int main(){
         double c=nn_cost(nn,ti,to);
         nn_finite_diff(nn,b,eps,ti,to);
         nn_learn(nn,b,rate);
-        std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     }
+        std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<2;++i){
         for(size_t j=0;j<2;++j){
             MAT_AT(NN_INPUT(nn),0,0)=i;
