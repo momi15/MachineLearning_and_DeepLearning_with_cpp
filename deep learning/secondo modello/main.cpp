@@ -18,19 +18,19 @@ int main(){
         1,1,1,
     };
     size_t stride=3;
-    size_t n=sizeof(td_xor)/sizeof(td_xor[0])/stride;
+    size_t n=4;
 
     Mat ti ={
         .rows=n,
         .cols=2,
         .stride=stride,
-        .es=td_xor,
+        .es=td_or,
     };
     Mat to={
         .rows=n,
         .cols=1,
         .stride=stride,
-        .es=td_xor+2,
+        .es=td_or+2,
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
