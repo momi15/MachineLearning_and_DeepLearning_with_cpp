@@ -1,12 +1,10 @@
 #include "main.hpp"
 int main(){
-    std::cout<<"fatto\n";
     srand(0);
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
-    std::cout<<"fatto\n";
     std::vector<double> td_xor{
         0,0,0,
         0,1,1,
@@ -20,10 +18,8 @@ int main(){
         1,1,1,
     };
     size_t stride=3;
-    std::cout<<"fatto\n";
     std::vector<double>td=td_or;
     size_t n=td.size()/stride;
-    std::cout<<"fatto\n";
 
     Mat ti ={
         .rows=n,
@@ -41,7 +37,7 @@ int main(){
     NN_forward(nn);
     double eps=2e-1,rate=2e-1;
         std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    for(size_t i=0;i<100*1000;++i){
+    for(size_t i=0;i<100*100;++i){
         double c=nn_cost(nn,ti,to);
         nn_finite_diff(nn,b,eps,ti,to);
         nn_learn(nn,b,rate);
