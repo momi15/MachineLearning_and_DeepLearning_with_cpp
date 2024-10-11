@@ -21,20 +21,21 @@ int main(){
     };
     size_t stride=3;
     std::cout<<"fatto\n";
-    size_t n=td_or.size()/stride;
+    std::vector<double>td=td_or;
+    size_t n=td.size()/stride;
     std::cout<<"fatto\n";
 
     Mat ti ={
         .rows=n,
         .cols=2,
         .stride=stride,
-        .es=td_or.data(),
+        .es=td.data(),
     };
     Mat to={
         .rows=n,
         .cols=1,
         .stride=stride,
-        .es=td_or.data()+2,
+        .es=td.data()+2,
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
