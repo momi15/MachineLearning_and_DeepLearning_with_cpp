@@ -5,32 +5,32 @@ int main(){
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
-    double td_xor[]={
+    std::vector<double> td_xor{
         0,0,0,
         0,1,1,
         1,0,1,
         1,1,0,
     };
-    double td_or[]={
+    std::vector<double> td_or{
         0,0,0,
         0,1,1,
         1,0,1,
         1,1,1,
     };
     size_t stride=3;
-    size_t n=sizeof(td_or)/sizeof(td_or[0])/stride;
+    size_t n=td_or.size()/stride;
 
     Mat ti ={
         .rows=n,
         .cols=2,
         .stride=stride,
-        .es=td_or,
+        .es=td_or.data(),
     };
     Mat to={
         .rows=n,
         .cols=1,
         .stride=stride,
-        .es=td_or+2,
+        .es=td_or.data()+2,
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
@@ -52,6 +52,5 @@ int main(){
         }
     }
     NN_PRINT(nn);
-    nn_libera(nn);
     return 0;
 }
