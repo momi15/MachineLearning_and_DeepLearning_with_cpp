@@ -5,6 +5,7 @@ int main(){
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
+    std::cout<<"fatto\n";
     std::vector<double> td_xor{
         0,0,0,
         0,1,1,
@@ -18,7 +19,9 @@ int main(){
         1,1,1,
     };
     size_t stride=3;
+    std::cout<<"fatto\n";
     size_t n=td_or.size()/stride;
+    std::cout<<"fatto\n";
 
     Mat ti ={
         .rows=n,
