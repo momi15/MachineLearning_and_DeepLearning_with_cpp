@@ -38,9 +38,9 @@ int main(){
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
-    double eps=2e-2,rate=2e-2;
+    double eps=2e-1,rate=2e-1;
         std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    for(size_t i=0;i<1000*1000;++i){
+    for(size_t i=0;i<100*1000;++i){
         double c=nn_cost(nn,ti,to);
         nn_finite_diff(nn,b,eps,ti,to);
         nn_learn(nn,b,rate);
