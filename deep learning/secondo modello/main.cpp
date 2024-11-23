@@ -2,8 +2,8 @@
 int main(){
     srand(0);
     size_t arch[]={2,2,1};
-    NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
+    NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
 
     nn_fill(nn,-1,1);
     std::vector<double> td_xor{
