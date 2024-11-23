@@ -2,10 +2,10 @@
 int main(){
     srand(0);
     size_t arch[]={2,2,1};
+    std::cout<<"fatto1";
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
-    std::cout<<"fatto1";
     nn_fill(nn,-1,1);
     std::vector<double> td_xor{
         0,0,0,
