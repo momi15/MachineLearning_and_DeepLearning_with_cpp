@@ -4,8 +4,8 @@ int main(){
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     std::cout<<"fatto1";
-    NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
+
     nn_fill(nn,-1,1);
     std::vector<double> td_xor{
         0,0,0,
@@ -41,7 +41,7 @@ int main(){
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<1;++i){
         double c=nn_cost(nn,ti,to);
-        nn_finite_diff(nn,b,eps,ti,to);
+//        nn_finite_diff(nn,b,eps,ti,to);
 //        nn_learn(nn,b,rate);
         dcost(derivataCost,ti,to);
         nn_adam(nn,derivataCost,rate);
