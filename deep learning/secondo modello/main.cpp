@@ -3,6 +3,7 @@ int main(){
     srand(0);
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
+    NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
     nn_fill(derivataCost,-1,1);
@@ -36,14 +37,15 @@ int main(){
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
-    double eps=2e-1,rate=2e-1;
+    double eps=2e-1,rate=2e-9;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    for(size_t i=0;i<1;++i){
+    for(size_t i=0;i<100*10000;++i){
         double c=nn_cost(nn,ti,to);
-//        nn_finite_diff(nn,b,eps,ti,to);
-//        nn_learn(nn,b,rate);
-        dcost(derivataCost,ti,to);
-        nn_adam(nn,derivataCost,rate);
+    //    nn_finite_diff(nn,b,eps,ti,to);
+       dcost(derivataCost,ti,to);
+        nn_learn(nn,b,rate);
+//       nn_adam(nn,derivataCost,rate);
+       if(i%100)
         std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     }
     for(size_t i=0;i<2;++i){
