@@ -50,7 +50,7 @@ int main() {
     const float eps = 1e-4;
     const float rate = 1e-3;
 
-    for (size_t i = 0; i < 10000; ++i) {
+    for (size_t i = 0; i < 1000; ++i) {
         float Dcost = (cost(w + eps, b) - cost(w, b)) / eps;
         float bd = (cost(w, b + eps) - cost(w, b)) / eps;
         w -= rate * Dcost;
