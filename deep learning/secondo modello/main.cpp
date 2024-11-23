@@ -5,6 +5,7 @@ int main(){
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
+    std::cout<<"fatto1";
     nn_fill(nn,-1,1);
     std::vector<double> td_xor{
         0,0,0,
