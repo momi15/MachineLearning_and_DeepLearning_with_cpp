@@ -38,11 +38,11 @@ int main(){
     NN_forward(nn);
     double eps=2e-1,rate=2e-1;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    dcost(derivataCost,ti,to);
     for(size_t i=0;i<1;++i){
         double c=nn_cost(nn,ti,to);
-//        nn_finite_diff(nn,b,eps,ti,to);
-        nn_learn(nn,b,rate);
+        nn_finite_diff(nn,b,eps,ti,to);
+//        nn_learn(nn,b,rate);
+        dcost(derivataCost,ti,to);
         nn_adam(nn,derivataCost,rate);
         std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     }
