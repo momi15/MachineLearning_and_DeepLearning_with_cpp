@@ -4,7 +4,7 @@ int main(){
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
-
+    nn_fill(derivataCost,-1,1);
     nn_fill(nn,-1,1);
     std::vector<double> td_xor{
         0,0,0,
