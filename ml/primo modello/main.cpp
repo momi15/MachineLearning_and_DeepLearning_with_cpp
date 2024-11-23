@@ -9,11 +9,11 @@
 using namespace std;
 
 int allenamento[][2] = {
-    {1, 1},
-    {2, 2},
-    {3, 4},
+    {1, 2},
+    {2, 4},
+    {3, 6},
     {4, 8},
-    {5, 16},
+    {5, 10},
 };
 
 int lunghezza_allenamento = (sizeof(allenamento) / sizeof(allenamento[0]));
