@@ -4,7 +4,7 @@
 // definisco i 4 oggetti in modo globale
 neurone NeuroneAND, NeuroneOR, NeuroneNOR, NeuroneNAND;
 /*
-  questo è il set di dati per allenare i modelli 
+  questo e' il set di dati per allenare i modelli 
   le prime 2 colonne rapresentano le varie combinazioni e
   la terza colonna rapresenta il risultato dei vari risultati delle operazioni logiche
   */
@@ -54,7 +54,7 @@ std::vector<float> CalcoloDigitale(int numero[], const std::vector<std::vector<i
     std::vector<float> risultato;
     /*inizia l'allenamento del neurone che che viene passato nella variabile
      tipo il primo valore che viene passato dice che non vogliamo vedere i risultato degli allenamenti
-     il secondo valore che viene passato è il set di dati su cui fare l'allenamento*/
+     il secondo valore che viene passato e' il set di dati su cui fare l'allenamento*/
     tipo.iniziallizzazione(false, allenamento);
     /*vengono defenite le variabili:
        w1 che rapresenta il peso del primo valore che viene fatto passare
@@ -65,7 +65,7 @@ std::vector<float> CalcoloDigitale(int numero[], const std::vector<std::vector<i
     //qua vengono fatti passare i valori su cui vogliamo fare l'operazione logica
     for (int j = 0; j < numero_bit; ++j) {
         /*si calcola il risultato dei dati che sono salvati in 
-          variabili grazie alla formula della retta perchè è un modello di ML fatto con la regressione lineare
+          variabili grazie alla formula della retta perche' e' un modello di ML fatto con la regressione lineare
           quindi si fa la formula mx+q essendo che abbiamo 2 valori di entrata abbiamo 2 m quindi diventa 
           m₁*x₁+m₂*x₂+q e poi si fa la funzione sigmoidea in modo da avere dei dati che vadano da 0 a 1 */
         risultato.push_back(sigmoid(variabili[numero[0]][j] * w1 + variabili[numero[1]][j] * w2 + b ));
@@ -82,7 +82,7 @@ std::vector<float> CalcoloDigitaleXOR(int numero[], const std::vector<std::vecto
     NeuroneNOR.iniziallizzazione(false,allenamento_nor);
     //definiamo la variabile vettore di tipo float che conterrà il risultato dell'operazione
     std::vector<float> risultato;
-    /*si prendono i diversi pesi e bias delle varie operazioni logiche perchè
+    /*si prendono i diversi pesi e bias delle varie operazioni logiche perche'
       per fare l'XOR dobbiamo usare questa formula (x|y) & !(x&y) 
       quindi prima facciamo un OR tra i 2 valori poi facciamo una NAND e poi con i risultati
        delle 2 operazioni logiche facciamo una AND e così avremo avuto una XOR*/
@@ -106,11 +106,11 @@ std::vector<float> CalcoloDigitaleXOR(int numero[], const std::vector<std::vecto
 }
 /*funzione per calcolare l'OR,l'NOR,l'AND e la NAND usando le veriabili e i precedenti risultati
   l'array numero rapresenta la colonna selezionata dall'utente il vettore di vettori di tipo int 
-  sono le variabili scelte dall'utente l'array tridimensionale è il set di dati il tipo è il neurone
+  sono le variabili scelte dall'utente l'array tridimensionale e' il set di dati il tipo e' il neurone
   dell'operazione scelta il vettore di tipo float risultato1 rapresenta il primo risultato selezionato
   dall'utente il vettore di tipo float risultato2 rapresenta il secondo risultato scelto dall'utente 
   se aveva scelto di usare un solo risultato viene fatto passare lo stesso risultato scelto dall'utente 
-  tanto non verrà usato il bool ci dice se l'utente vuole usare uno o due risultati il numero_bit è quanto è lunga una colonna*/
+  tanto non verrà usato il bool ci dice se l'utente vuole usare uno o due risultati il numero_bit e' quanto e' lunga una colonna*/
 std::vector<float> CalcoloDigitaleConRisultati(int numero[], const std::vector<std::vector<int>>& variabili, float allenamento[][3], neurone& tipo, const std::vector<float>& risultato1, const std::vector<float>& risultato2, bool piuRisultati, int numero_bit) {
     //definiamo la variabile vettore di tipo float che conterrà il risultato dell'operazione
     std::vector<float> risultato;
@@ -120,7 +120,7 @@ std::vector<float> CalcoloDigitaleConRisultati(int numero[], const std::vector<s
     float w1 = tipo.GetW1(), w2 = tipo.GetW2(), b = tipo.GetB();
     //vengono passati i valori su cui vogliamo fare il calcolo
     for (int j = 0; j < numero_bit; ++j) {
-        //se ci sono più risultati vengono passati i 2 risultati scelti dal utente in precedenza
+        //se ci sono piu' risultati vengono passati i 2 risultati scelti dal utente in precedenza
         if (piuRisultati) {
             risultato.push_back(sigmoid(risultato1[j] * w1 + risultato2[j] * w2 + b));
         }
@@ -182,19 +182,19 @@ void gestione_risposte(std::vector<std::vector<float>>& risultati, int numero[],
     std::string operazione;
     //vettore che avrà il numero delle colonne selezionate
     std::vector<int> NumeroRisultato(2);
-    //se il vettore risultati non è vuoto
+    //se il vettore risultati non e' vuoto
     if (!risultati.empty()) {
         std::cout << "\nVuoi lavorare con i precedenti risultati? Se sì, scrivere 'si', altrimenti scrivere 'no'\n";
         std::cin >> operazione;
-        //se l'utente scrive si e c'è più di un risultato salvato
+        //se l'utente scrive si e c'e' piu' di un risultato salvato
         if (operazione == "si"&&risultati.size()>1) {
-            std::cout << "\nVuoi lavorare con più risultati?\n";
+            std::cout << "\nVuoi lavorare con piu' risultati?\n";
             std::cin >> operazione;
             //se scrive si
             if (operazione == "si") {
                 std::cout << "\nScrivi il primo risultato: ";
                 std::cin >> NumeroRisultato[0];
-                //viene fatto -1 perchè il vettore conta da 0 l'utente parte da 1
+                //viene fatto -1 perche' il vettore conta da 0 l'utente parte da 1
                 NumeroRisultato[0] -= 1;
                 std::cout << "\nScrivi il secondo risultato: ";
                 std::cin >> NumeroRisultato[1];
@@ -203,13 +203,13 @@ void gestione_risposte(std::vector<std::vector<float>>& risultati, int numero[],
                 supRisultati = CalcoloDigitaleConRisultati(numero, variabili, allenamento, tipo, risultati[NumeroRisultato[0]], risultati[NumeroRisultato[1]], true, numero_bit);
             } // se scrive qualcosa diversa da si
             else {
-                // se sono salvati più risultati
+                // se sono salvati piu' risultati
                 if(risultati.size()>1){
                     std::cout << "\nCon quale risultato vuoi lavorare?";
                     std::cin >> NumeroRisultato[0];
                     NumeroRisultato[0] -= 1;
                     }
-                    //se è salvato un solo risultato
+                    //se e' salvato un solo risultato
                     else{
                         std::cout<<"e' stato preso l'unico risultato salvato!";
                         NumeroRisultato[0]=0;
@@ -271,9 +271,9 @@ int main() {
         std::cout << "Scrivi i bit della colonna numero " << i+1 << ":\n";
         for (int j = 0; j < numero_bit; ++j) {
             std::cin >> dato;
-            //controlla se dato è diverso da 0 o 1 e se è diverso chiede che venga ri scritto 
+            //controlla se dato e' diverso da 0 o 1 e se e' diverso chiede che venga ri scritto 
             while (dato != 0 && dato != 1) {
-                std::cout << "\033[1;33m Ripetere il numero perchè non è un numero binario\n\033[0;0m";
+                std::cout << "\033[1;33m Ripetere il numero perche' non e' un numero binario\n\033[0;0m";
                 std::cin >> dato;
             }
             variabili[i][j] = dato;
@@ -284,7 +284,7 @@ int main() {
         //variabile in cui verrà salvato la colonna selezionata
         int numero[2] = {0, 1};
         std::cout << "Quale operazione vuoi fare?\n";
-        //continua a chiedere l'operazione fino a quando è diversa da AND,NAND,OR o XOR 
+        //continua a chiedere l'operazione fino a quando e' diversa da AND,NAND,OR o XOR 
         do {
             std::cin >> risposta;
         } while (risposta != "and" && risposta != "AND" && risposta != "And" &&
@@ -292,7 +292,7 @@ int main() {
                  risposta != "or" && risposta != "OR" && risposta != "Or" &&
                  risposta != "nor" && risposta != "NOR" && risposta != "Nor" &&
                  risposta != "Xor" && risposta != "XOR" && risposta != "xor");
-        //se il numero di variabili è superiore a 2 e se non ci sono risultati salvati
+        //se il numero di variabili e' superiore a 2 e se non ci sono risultati salvati
         if (numero_variabili >2&& risultati.empty()) {
             std::cout << "\nSu quali variabili vuoi lavorare?\n";
             std::cout << "Scrivi la prima variabile\n";
@@ -317,13 +317,13 @@ int main() {
         } else if (risposta == "nor" || risposta == "NOR" || risposta == "Nor") {
             gestione_risposte(risultati, numero, variabili, allenamento_nor, NeuroneNOR, supRisultati, numero_bit, numero_variabili);
         } else if (risposta == "xor" || risposta == "XOR" || risposta == "Xor") {
-            //se è salvato almeno un risultato
+            //se e' salvato almeno un risultato
             if (!risultati.empty()) {
                 std::cout << "\nVuoi lavorare con i precedenti risultati? Se sì, scrivere 'si', altrimenti scrivere 'no'\n";
                 std::cin >> risposta;
-                //se scrive si e ci sono più risultati salvati
+                //se scrive si e ci sono piu' risultati salvati
                 if (risposta == "si"&&risultati.size()>1) {
-                    std::cout << "\nVuoi lavorare con più risultati?\n";
+                    std::cout << "\nVuoi lavorare con piu' risultati?\n";
                     std::cin >> risposta;
                     if (risposta == "si") {
                         //conteranno il numero della colonna selezionato dall'utente
@@ -332,10 +332,10 @@ int main() {
                         std::cin >> NumeroRisultato1;
                         std::cout << "\nScrivi il secondo risultato: ";
                         std::cin >> NumeroRisultato2;
-                        //si prende il risultato della funzione faccendo passare le corrette colonne con i risultati scelti facendo -1 perchè il vettore parte da 0 l'utente in genere no e poi si salva in supRisultati
+                        //si prende il risultato della funzione faccendo passare le corrette colonne con i risultati scelti facendo -1 perche' il vettore parte da 0 l'utente in genere no e poi si salva in supRisultati
                         supRisultati = CalcoloDigitaleXOR(numero, variabili, risultati[NumeroRisultato1 - 1], risultati[NumeroRisultato2 - 1], true, numero_bit);
                     }
-                    //se ha scritto una cosa diversa dal si o se è salvato un solo risultato
+                    //se ha scritto una cosa diversa dal si o se e' salvato un solo risultato
                     else {
                         //conterrà la colonna del vettore risultato desiderata
                         int NumeroRisultato;
@@ -350,7 +350,7 @@ int main() {
                     //si salva il risultato nel vettore di vettori risultati
                     risultati.push_back(supRisultati);
                 }
-                //se è salvato un unico risultato
+                //se e' salvato un unico risultato
                 else if(risultati.size()==1){
                     int NumeroRisultato;
                     std::cout<<"e' stato preso l'unico risisultato salvato!";
