@@ -37,7 +37,7 @@ int main(){
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
-    double eps=1e-5,rate=1e-3;
+    double eps=2e-5,rate=2e-3;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<100*100;++i){
         double c=nn_cost(nn,ti,to);
