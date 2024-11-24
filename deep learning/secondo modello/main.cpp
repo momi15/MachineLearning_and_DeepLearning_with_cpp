@@ -6,7 +6,7 @@ int main(){
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
-    nn_fill(derivataCost,-1,1);
+    nn_fill(b,-1,1);
     std::vector<double> td_xor{
         0,0,0,
         0,1,1,
@@ -39,7 +39,7 @@ int main(){
     NN_forward(nn);
     double eps=1e-5,rate=2e-3;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    for(size_t i=0;i<100*1000;++i){
+    for(size_t i=0;i<100*100;++i){
         double c=nn_cost(nn,ti,to);
         nn_finite_diff(nn,b,eps,ti,to);
 //        NN_Dcost(b,ti,to);
