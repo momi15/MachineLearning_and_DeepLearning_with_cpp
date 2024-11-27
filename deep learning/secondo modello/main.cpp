@@ -7,6 +7,7 @@ int main(){
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
     nn_fill(b,-1,1);
+    nn_fill(derivataCost,-1,1);
     std::vector<double> td_xor{
         0,0,0,
         0,1,1,
