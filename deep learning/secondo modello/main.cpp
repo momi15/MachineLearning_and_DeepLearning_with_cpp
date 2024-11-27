@@ -5,9 +5,9 @@ int main(){
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
-    nn_fill(nn,-1,1);
-    nn_fill(b,-1,1);
-    nn_fill(derivataCost,-1,1);
+    nn_fill(nn,-0.5,0.5);
+    nn_fill(b,-0.5,0.5);
+    nn_fill(derivataCost,-0.5,0.5);
     std::vector<double> td_xor{
         0,0,0,
         0,1,1,
@@ -38,7 +38,7 @@ int main(){
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
-    double eps=1e-2,rate=1e-5;
+    double eps=1e-2,rate=1e-6;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<1000*100;++i){
         double c=nn_cost(nn,ti,to);
