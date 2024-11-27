@@ -39,15 +39,15 @@ int main(){
     NN_forward(nn);
     double eps=1e-5,rate=2e-5;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    for(size_t i=0;i<10;++i){
+    for(size_t i=0;i<100;++i){
         double c=nn_cost(nn,ti,to);
 //        nn_finite_diff(nn,b,eps,ti,to);
         NN_Dcost(derivataCost,ti,to);
 //        nn_learn(nn,b,rate);
        nn_adam(nn,derivataCost,rate);
 //       if(i%1000)
-        std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     }
+        std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<2;++i){
         for(size_t j=0;j<2;++j){
             MAT_AT(NN_INPUT(nn),0,0)=i;
