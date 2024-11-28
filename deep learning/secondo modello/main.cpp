@@ -48,8 +48,8 @@ int main(){
 //       nn_adam(nn,derivataCost,rate);
 //       if(i%1000)
         std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
+        std::cout<<"fatto "<<i<<std::endl;
     }
-    std::cout<<"fatto";
     for(size_t i=0;i<2;++i){
         for(size_t j=0;j<2;++j){
             MAT_AT(NN_INPUT(nn),0,0)=i;
