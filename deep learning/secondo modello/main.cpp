@@ -1,7 +1,7 @@
 #include "main.hpp"
 int main(){
     srand(0);
-    size_t arch[]={2,2,1};
+    size_t arch[]={2,4,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
