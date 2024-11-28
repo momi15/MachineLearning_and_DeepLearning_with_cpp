@@ -47,7 +47,7 @@ int main(){
 //        nn_learn(nn,derivataCost,rate);
        nn_adam(nn,derivataCost,rate);
 //       if(i%1000)
-        std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
+        std::cout<<std::endl<<1<<")"<<nn_cost(nn,ti,to)<<std::endl;
     }
     for(size_t i=0;i<2;++i){
         for(size_t j=0;j<2;++j){
