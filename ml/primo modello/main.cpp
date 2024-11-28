@@ -22,11 +22,11 @@ float numero(float max,float min) {
     return static_cast<double>(rand())/RAND_MAX*(max-min)+min;
 }
 
-float cost(float w, float b) {
+float cost(float w) {
     float risultato = 0.0f;
     for (size_t i = 0; i < lunghezza_allenamento; i++) {
         float x = allenamento[i][0];
-        float y = x * w + b;
+        float y = x * w;
         float d = y - allenamento[i][1];
         risultato += d * d;
     }
@@ -42,24 +42,20 @@ int main() {
     srand(time(0));
 
     float w = numero(-1,1);
-    float b = numero(-1,1);
-    float c = cost(w, b);
+//    float b = numero(-1,1);
+    float c = cost(w);
     const float eps = 1e-4;
     const float rate = 1e-3;
 
     for (size_t i = 0; i < 100000; ++i) {
-        float Dcost = (cost(w + eps, b) - cost(w, b)) / eps;
-        float bd = (cost(w, b + eps) - cost(w, b)) / eps;
+        float Dcost = (cost(w + eps) - cost(w)) / eps;
+//        float bd = (cost(w, b + eps) - cost(w, b)) / eps;
         w -= rate * Dcost;
-        b -= rate * bd;
+//        b -= rate * bd;
 
-        c = cost(w, b);
-        if (c < 0.02) {
-            break;
-        }
-
+        c = cost(w);
     }
-        cout << w << " " << b << " " << fixed << setprecision(11) << c << endl;
+        cout << w << " " << fixed << setprecision(11) << c << endl;
 
     return 0;
 }
