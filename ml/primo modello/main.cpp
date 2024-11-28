@@ -18,11 +18,8 @@ int allenamento[][2] = {
 
 int lunghezza_allenamento = (sizeof(allenamento) / sizeof(allenamento[0]));
 
-float numero() {
-    static random_device rd;
-    static mt19937 gen(rd());
-    static uniform_real_distribution<> dis(0.0, 1.0);
-    return dis(gen);
+float numero(float max,float min) {
+    return static_cast<double>(rand())/RAND_MAX*(max-min)+min;
 }
 
 float cost(float w, float b) {
@@ -42,15 +39,15 @@ int arrotonda(float numero) {
 
 
 int main() {
-    srand(static_cast<unsigned int>(time(0)));
+    srand(time(0));
 
-    float w = numero();
-    float b = numero();
+    float w = numero(-1,1);
+    float b = numero(-1,1);
     float c = cost(w, b);
     const float eps = 1e-4;
     const float rate = 1e-3;
 
-    for (size_t i = 0; i < 1000; ++i) {
+    for (size_t i = 0; i < 10000; ++i) {
         float Dcost = (cost(w + eps, b) - cost(w, b)) / eps;
         float bd = (cost(w, b + eps) - cost(w, b)) / eps;
         w -= rate * Dcost;
