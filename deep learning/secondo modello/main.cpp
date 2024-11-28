@@ -44,9 +44,7 @@ int main(){
         double c=nn_cost(nn,ti,to);
 //        nn_finite_diff(nn,b,eps,ti,to);
         NN_Dcost(derivataCost,ti,to);
-        std::cout<<"fatto";
         nn_learn(nn,derivataCost,rate);
-        std::cout<<"fatto";
 //       nn_adam(nn,derivataCost,rate);
 //       if(i%1000)
         std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
