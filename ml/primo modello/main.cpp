@@ -48,7 +48,7 @@ float dcost(float w){
     return risultato;
 }
 int main() {
-    srand(time(0));
+    srand(69);
 
     float w = numero(10,0);
 //    float b = numero(-1,1);
