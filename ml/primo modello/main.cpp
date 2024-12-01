@@ -14,6 +14,7 @@ int allenamento[][2] = {
     {3, 6},
     {4, 8},
     {5, 10},
+    {5, 10},
 };
 
 int lunghezza_allenamento = (sizeof(allenamento) / sizeof(allenamento[0]));
@@ -49,7 +50,7 @@ float dcost(float w){
 int main() {
     srand(time(0));
 
-    float w = numero(1,-1);
+    float w = numero(10,0);
 //    float b = numero(-1,1);
     float c = cost(w);
     const float eps = 1e-4;
@@ -64,7 +65,7 @@ int main() {
         c = cost(w);
     }
     cout << w << " " << fixed << setprecision(11) <<endl<< c << endl;
-    w=numero(1,-1);
+    w=numero(10,0);
     for(size_t j=0;j<10000;++j){
         c=cost(w);
         float gcost=dcost(w);
