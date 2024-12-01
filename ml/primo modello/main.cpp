@@ -67,14 +67,14 @@ int main() {
 //        b -= rate * bd;
 
         c = cost(w);
-        cout << w << " " << fixed << setprecision(11) <<endl<< c << endl;
     }
+        cout << w << " " << fixed << setprecision(11) <<endl<< c << endl;
     w=numero(10,0);
     for(size_t j=0;j<1000;++j){
         c=cost(w);
         float gcost=dcost(w);
         w-=rate*gcost;
-        cout << w << " " << fixed << setprecision(11) <<endl<< c << endl;
     }
+        cout <<"W = "<< w << fixed << setprecision(11) <<endl<<"C = "<< c << endl;
     return 0;
 }
