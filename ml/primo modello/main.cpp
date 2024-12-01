@@ -66,10 +66,10 @@ int main() {
     cout << w << " " << fixed << setprecision(11) << c << endl;
     w=numero(1,-1);
     for(size_t j=0;j<1000;++j){
+        c=cost(w);
         float gcost=dcost(w);
         w-=rate*gcost;
-        c=cost(w);
+        cout << w << " " << fixed << setprecision(11) << c << endl;
     }
-    cout << w << " " << fixed << setprecision(11) << c << endl;
     return 0;
 }
