@@ -65,7 +65,7 @@ int main() {
     }
     cout << w << " " << fixed << setprecision(11) << c << endl;
     w=numero(1,-1);
-    for(size_t j=0;j<10;++j){
+    for(size_t j=0;j<100;++j){
         float gcost=dcost(w);
         w-=rate*gcost;
         c=cost(w);
