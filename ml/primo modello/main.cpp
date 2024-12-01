@@ -50,7 +50,7 @@ float dcost(float w){
 int main() {
     srand(time(0));
 
-    float w = numero(100,0);
+    float w = numero(1,0);
 //    float b = numero(-1,1);
     float c = cost(w);
     const float eps = 1e-4;
@@ -65,7 +65,7 @@ int main() {
         c = cost(w);
     }
     cout << w << " " << fixed << setprecision(11) <<endl<< c << endl;
-    w=numero(100,0);
+    w=numero(1,0);
     for(size_t j=0;j<10000;++j){
         c=cost(w);
         float gcost=dcost(w);
