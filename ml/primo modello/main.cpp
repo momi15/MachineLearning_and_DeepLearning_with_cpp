@@ -68,13 +68,13 @@ int main() {
 
         c = cost(w);
     }
-        cout <<"W = "<< w << fixed << setprecision(11) <<endl<<"C = "<< c << endl;
+        cout <<fixed << setprecision(11)<<"W = "<< w <<endl<<"C = "<< c << endl;
     w=numero(10,0);
     for(size_t j=0;j<1000;++j){
         c=cost(w);
         float gcost=dcost(w);
         w-=rate*gcost;
     }
-        cout <<"W = "<< w << fixed << setprecision(11) <<endl<<"C = "<< c << endl;
+        cout <<fixed << setprecision(11)<<"W = "<< w <<endl<<"C = "<< c << endl;
     return 0;
 }
