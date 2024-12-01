@@ -69,7 +69,7 @@ int main() {
         c=cost(w);
         float gcost=dcost(w);
         w-=rate*gcost;
-        cout << w << " " << fixed << setprecision(11) << c << endl;
     }
+        cout << w << " " << fixed << setprecision(11) << c << endl;
     return 0;
 }
