@@ -57,8 +57,8 @@ int main() {
     float w = numero(10,0);
 //    float b = numero(-1,1);
     float c = cost(w);
-    const float eps = 1e-5;
-    const float rate = 1e-3;
+    const float eps = 1e-8;
+    const float rate = 1e-5;
 
     for (size_t i = 0; i <1000; ++i) {
         float Dcost = (cost(w + eps) - cost(w)) / eps;
