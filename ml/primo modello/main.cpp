@@ -56,7 +56,7 @@ int main() {
     const float eps = 1e-4;
     const float rate = 1e-3;
 
-    for (size_t i = 0; i < 1; ++i) {
+    for (size_t i = 0; i <10; ++i) {
         float Dcost = (cost(w + eps) - cost(w)) / eps;
 //        float bd = (cost(w, b + eps) - cost(w, b)) / eps;
         w -= rate * Dcost;
@@ -66,7 +66,7 @@ int main() {
     }
     cout << w << " " << fixed << setprecision(11) <<endl<< c << endl;
     w=numero(10,0);
-    for(size_t j=0;j<1;++j){
+    for(size_t j=0;j<10;++j){
         c=cost(w);
         float gcost=dcost(w);
         w-=rate*gcost;
