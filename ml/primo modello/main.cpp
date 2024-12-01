@@ -14,7 +14,11 @@ int allenamento[][2] = {
     {3, 6},
     {4, 8},
     {5, 10},
-    {5, 10},
+    {6, 12},
+    {7, 14},
+    {8, 16},
+    {9, 18},
+    {10, 20},
 };
 
 int lunghezza_allenamento = (sizeof(allenamento) / sizeof(allenamento[0]));
