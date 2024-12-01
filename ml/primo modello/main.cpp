@@ -37,11 +37,19 @@ int arrotonda(float numero) {
     return static_cast<int>(numero + 0.5f);
 }
 
-
+float dcost(float w){
+    float risultato=0;
+    for(size_t i=0;i<lunghezza_allenamento;++i){
+        float x=allenamento[i][0],y=allenamento[i][1];
+        risultato+=2*(x*w-y)*x;
+    }
+    risultato/=lunghezza_allenamento;
+    return risultato;
+}
 int main() {
     srand(time(0));
 
-    float w = numero(-1,1);
+    float w = numero(1,-1);
 //    float b = numero(-1,1);
     float c = cost(w);
     const float eps = 1e-4;
@@ -55,7 +63,13 @@ int main() {
 
         c = cost(w);
     }
-        cout << w << " " << fixed << setprecision(11) << c << endl;
-
+    cout << w << " " << fixed << setprecision(11) << c << endl;
+    w=numero(1,-1);
+    for(size_t j=0;j<10;++j){
+        float gcost=dcost(w);
+        w-=rate*gcost;
+        c=cost(w);
+    }
+    cout << w << " " << fixed << setprecision(11) << c << endl;
     return 0;
 }
