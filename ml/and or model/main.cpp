@@ -49,16 +49,37 @@ float cost(float w1, float w2,float b) {
     }
     return risultato / lunghezza;
 }
+void gcost(float w1,float w2,float b,float &dw1,float &dw2,float &db){
+    dw1=0;
+    dw2=0;
+    db=0;
+    for(size_t i=0;i<lunghezza;++i){
+        float xi=allenamento[i][0],yi=allenamento[i][1],zi=allenamento[i][2];
+        float ai=sigmoid(xi*w1+yi*w2+b);
+        dw1+=2*(ai-zi)*ai*(1-ai)*xi;
+        dw1+=2*(ai-zi)*ai*(1-ai)*yi;
+        db+=2*(ai-zi)*ai*(1-ai);
+    }
+    dw1/=lunghezza;
+    dw2/=lunghezza;
+    db/=lunghezza;
 
+}
 int main() {
     srand(time(0));
-    float w1 = numero();
-    float w2 = numero();
-    float b = numero();
-    float eps = 1e-1;  // Small epsilon for numerical derivative
-    float rate = 1e-1;
-    float c = cost(w1, w2,b);
+    float w1 = numero(),w2 = numero(),b = numero();
+    float dw1 = 0,dw2 = 0,db = 0;
 
+    float eps = 1e-5;  // Small epsilon for numerical derivative
+    float rate = 1e-3;
+    float c = cost(w1, w2,b);
+    cout<<"C="<<c<<endl;
+    for(size_t i=0;i<100;++i){
+        gcost(w1,w2,b,dw1,dw2,db);
+        w1-=rate*dw1;
+        w2-=rate*dw2;
+        b-=rate*db;
+    }
     for(int i=0;i<2;++i){
         for(int j=0;j<2;++j){
             cout<<i<<"|"<<j<<"="<<sigmoid(i*w1+j*w2+b)<<endl;
