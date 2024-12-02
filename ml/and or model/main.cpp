@@ -58,7 +58,7 @@ void gcost(float w1,float w2,float b,float *dw1,float *dw2,float *db){
         float xi=allenamento[i][0],yi=allenamento[i][1],zi=allenamento[i][2];
         float ai=sigmoid(xi*w1+yi*w2+b),di=2*(ai-zi)*ai*(1-ai);
         *dw1+=di*xi;
-        *dw1+=di*yi;
+        *dw2+=di*yi;
         *db+=di;
     }
     *dw1/=lunghezza;
