@@ -73,7 +73,7 @@ int main() {
     float eps = 1e-5;  // Small epsilon for numerical derivative
     float rate = 1e-5;
     cout<<"C="<<cost(w1, w2,b)<<endl;
-    for(size_t i=0;i<100000*1000;++i){
+    for(size_t i=0;i<10000*1000;++i){
         gcost(w1,w2,b,&dw1,&dw2,&db);
         w1-=rate*dw1;
         w2-=rate*dw2;
