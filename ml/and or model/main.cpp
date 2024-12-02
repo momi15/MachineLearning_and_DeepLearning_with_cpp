@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
+#include <iomanip>
 using namespace std;
 // sigmoid function
 float sigmoid(float x) {
@@ -84,7 +85,7 @@ int main() {
     cout<<"C="<<c<<endl;
     for(int i=0;i<2;++i){
         for(int j=0;j<2;++j){
-            cout<<i<<"&&"<<j<<"="<<sigmoid(i*w1+j*w2+b)<<endl;
+            cout<<i<<"&&"<<j<<"="<<fixed<<setprecision(9)<<sigmoid(i*w1+j*w2+b)<<endl;
         }
     }
     return 0;
