@@ -30,10 +30,16 @@ semplice allenamento_nand[] = {
     {1,0,1},
     {1,1,0},
 };
+semplice allenamento_xor[]={
+    {0,0,0},
+    {0,1,1},
+    {1,0,1},
+    {1,1,0},
+};
 
 size_t lunghezza=4;
 
-semplice *allenamento=allenamento_or;
+semplice *allenamento=allenamento_xor;
 
 float numero() {
     return static_cast<float>(rand()) / RAND_MAX;
