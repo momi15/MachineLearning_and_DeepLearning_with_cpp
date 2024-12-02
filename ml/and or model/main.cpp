@@ -33,7 +33,7 @@ semplice allenamento_nand[] = {
 
 size_t lunghezza=4;
 
-semplice *allenamento=allenamento_and;
+semplice *allenamento=allenamento_or;
 
 float numero() {
     return static_cast<float>(rand()) / RAND_MAX;
@@ -50,6 +50,7 @@ float cost(float w1, float w2,float b) {
     }
     return risultato / lunghezza;
 }
+
 void gcost(float w1,float w2,float b,float *dw1,float *dw2,float *db){
     *dw1=0;
     *dw2=0;
@@ -65,6 +66,7 @@ void gcost(float w1,float w2,float b,float *dw1,float *dw2,float *db){
     *dw2/=lunghezza;
     *db/=lunghezza;
 }
+
 int main() {
     srand(time(0));
     float w1 = numero(),w2 = numero(),b = numero();
