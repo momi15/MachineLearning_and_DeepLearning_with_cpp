@@ -51,9 +51,9 @@ float cost(float w1, float w2,float b) {
     return risultato / lunghezza;
 }
 void gcost(float w1,float w2,float b,float &dw1,float &dw2,float &db){
-    dw1=0;
-    dw2=0;
-    db=0;
+    // dw1=0;
+    // dw2=0;
+    // db=0;
     for(size_t i=0;i<lunghezza;++i){
         float xi=allenamento[i][0],yi=allenamento[i][1],zi=allenamento[i][2];
         float ai=sigmoid(xi*w1+yi*w2+b);
@@ -64,7 +64,6 @@ void gcost(float w1,float w2,float b,float &dw1,float &dw2,float &db){
     dw1/=lunghezza;
     dw2/=lunghezza;
     db/=lunghezza;
-
 }
 int main() {
     srand(time(0));
