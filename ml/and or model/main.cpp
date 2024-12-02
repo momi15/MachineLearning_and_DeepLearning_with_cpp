@@ -66,7 +66,7 @@ void gcost(float w1,float w2,float b,float *dw1,float *dw2,float *db){
     *db/=lunghezza;
 }
 int main() {
-    srand(69);
+    srand(time(0));
     float w1 = numero(),w2 = numero(),b = numero();
     float dw1 = 0,dw2 = 0,db = 0;
 
