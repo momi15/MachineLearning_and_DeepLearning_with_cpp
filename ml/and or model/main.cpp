@@ -72,16 +72,15 @@ int main() {
 
     float eps = 1e-5;  // Small epsilon for numerical derivative
     float rate = 1e-2;
-    float c = cost(w1, w2,b);
-    cout<<"C="<<c<<endl;
+    cout<<"C="<<cost(w1, w2,b)<<endl;
     for(size_t i=0;i<1000*1000;++i){
         gcost(w1,w2,b,&dw1,&dw2,&db);
         w1-=rate*dw1;
         w2-=rate*dw2;
         b-=rate*db;
+        if(i%1000==0)
+        cout<<"C="<<cost(w1, w2,b)<<endl;
     }
-    c = cost(w1, w2,b);
-    cout<<"C="<<c<<endl;
     for(int i=0;i<2;++i){
         for(int j=0;j<2;++j){
             cout<<i<<" & "<<j<<"="<<fixed<<setprecision(9)<<sigmoid(i*w1+j*w2+b)<<endl;
