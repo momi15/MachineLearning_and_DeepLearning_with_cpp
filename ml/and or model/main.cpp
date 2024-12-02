@@ -74,7 +74,7 @@ int main() {
     float rate = 1e-1;
     float c = cost(w1, w2,b);
     cout<<"C="<<c<<endl;
-    for(size_t i=0;i<10000;++i){
+    for(size_t i=0;i<10*1000;++i){
         gcost(w1,w2,b,dw1,dw2,db);
         w1-=rate*dw1;
         w2-=rate*dw2;
@@ -84,7 +84,7 @@ int main() {
     cout<<"C="<<c<<endl;
     for(int i=0;i<2;++i){
         for(int j=0;j<2;++j){
-            cout<<i<<"|"<<j<<"="<<sigmoid(i*w1+j*w2+b)<<endl;
+            cout<<i<<"&&"<<j<<"="<<sigmoid(i*w1+j*w2+b)<<endl;
         }
     }
     return 0;
