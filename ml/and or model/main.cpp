@@ -77,7 +77,7 @@ int main() {
         gcost(w1,w2,b,&dw1,&dw2,&db);
         w1-=rate*dw1;
         w2-=rate*dw2;
-//        b-=rate*db;
+        b-=rate*db;
         if(i%1000==0)
         cout<<"C="<<cost(w1, w2,b)<<endl;
     }
