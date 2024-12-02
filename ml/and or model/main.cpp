@@ -71,7 +71,7 @@ int main() {
     float dw1 = 0,dw2 = 0,db = 0;
 
     float eps = 1e-5;  // Small epsilon for numerical derivative
-    float rate = 1e-1;
+    float rate = 1e-3;
     float c = cost(w1, w2,b);
     cout<<"C="<<c<<endl;
     for(size_t i=0;i<10*1000;++i){
