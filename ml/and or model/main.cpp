@@ -39,7 +39,7 @@ semplice allenamento_xor[]={
 
 size_t lunghezza=4;
 
-semplice *allenamento=allenamento_xor;
+semplice *allenamento=allenamento_or;
 
 float numero() {
     return static_cast<float>(rand()) / RAND_MAX;
