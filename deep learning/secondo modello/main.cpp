@@ -43,7 +43,7 @@ int main(){
     for(size_t i=0;i<1000;++i){
         double c=nn_cost(nn,ti,to);
 //        nn_finite_diff(nn,b,eps,ti,to);
-        NN_Dcost(derivataCost,ti,to);
+        NN_Dcost(derivataCost,ti,to,rate);
 //        nn_learn(nn,derivataCost,rate);
        nn_adam(nn,derivataCost,rate);
 //       if(i%1000)
