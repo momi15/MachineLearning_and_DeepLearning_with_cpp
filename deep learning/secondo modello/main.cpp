@@ -42,10 +42,10 @@ int main(){
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<100;++i){
         double c=nn_cost(nn,ti,to);
-//        nn_finite_diff(nn,b,eps,ti,to);
-        NN_Dcost(derivataCost,ti,to,rate);
+        nn_finite_diff(nn,b,eps,ti,to);
+//        NN_Dcost(derivataCost,ti,to,rate);
         nn_learn(nn,derivataCost,rate);
-       nn_adam(nn,derivataCost,rate);
+//       nn_adam(nn,derivataCost,rate);
 //       if(i%1000)
         std::cout<<std::endl<<i<<")"<<nn_cost(nn,ti,to)<<std::endl;
     }
