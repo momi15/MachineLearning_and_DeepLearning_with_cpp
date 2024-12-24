@@ -38,7 +38,7 @@ int main(){
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
     NN_forward(nn);
-    double eps=1e-3,rate=1e-9;
+    double eps=1e-3,rate=1e-5;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
     for(size_t i=0;i<10000;++i){
         double c=nn_cost(nn,ti,to);
@@ -46,7 +46,7 @@ int main(){
         NN_Dcost(derivataCost,ti,to,rate);
         nn_learn(nn,derivataCost,rate);
        nn_adam(nn,derivataCost,rate);
-//       if(i%1000)
+       if(i%1000)
         std::cout<<std::endl<<i<<")"<<nn_cost(nn,ti,to)<<std::endl;
     }
     std::cout<<"_____________________________________________________________________________________________________________";
