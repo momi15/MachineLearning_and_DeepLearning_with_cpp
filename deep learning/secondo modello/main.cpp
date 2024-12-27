@@ -38,7 +38,7 @@ int main(){
     NN_forward(nn);
     double eps=1e-3,rate=1e-5;
     std::cout<<std::endl<<nn_cost(nn,ti,to)<<std::endl;
-    for(size_t i=0;i<10000;++i){
+    for(size_t i=0;i<1;++i){
         double c=nn_cost(nn,ti,to);
 //        nn_finite_diff(nn,b,eps,ti,to);
         NN_backProgSimoid(nn,derivata,ti,to);
