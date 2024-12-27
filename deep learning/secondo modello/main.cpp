@@ -3,12 +3,8 @@ int main(){
     srand(0);
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
-    NN b=nn_alloc(arch,ARRAY_LEN(arch));
-    NN derivataCost=nn;
-    NN_PRINT(derivataCost);
-    return 0;
+    NN derivata=nn_alloc(arch,ARRAY_LEN(arch));
     nn_fill(nn,-1,1);
-    nn_fill(b,-1,1);
     nn_fill(derivataCost,-1,1);
     std::vector<double> td_xor{
         0,0,0,
@@ -45,9 +41,9 @@ int main(){
     for(size_t i=0;i<10000;++i){
         double c=nn_cost(nn,ti,to);
 //        nn_finite_diff(nn,b,eps,ti,to);
-        NN_backProgSimoid(nn,derivataCost,ti,to);
-        nn_learn(nn,derivataCost,rate);
-       nn_adam(nn,derivataCost,rate);
+        NN_backProgSimoid(nn,derivata,ti,to);
+//        nn_learn(nn,derivata,rate);
+       nn_adam(nn,derivata,rate);
        if(i%1000)
         std::cout<<std::endl<<i<<")"<<nn_cost(nn,ti,to)<<std::endl;
     }
