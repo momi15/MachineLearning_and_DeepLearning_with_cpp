@@ -1,6 +1,6 @@
 #include "main.hpp"
 int main(){
-    srand(0);
+    srand(69);
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN derivata=nn_alloc(arch,ARRAY_LEN(arch));
