@@ -4,7 +4,9 @@ int main(){
     size_t arch[]={2,2,1};
     NN nn=nn_alloc(arch,ARRAY_LEN(arch));
     NN b=nn_alloc(arch,ARRAY_LEN(arch));
-    NN derivataCost=nn_alloc(arch,ARRAY_LEN(arch));
+    NN derivataCost=nn;
+    NN_PRINT(derivataCost);
+    return 0;
     nn_fill(nn,-1,1);
     nn_fill(b,-1,1);
     nn_fill(derivataCost,-1,1);
@@ -33,7 +35,7 @@ int main(){
     Mat to={
         .rows=n,
         .cols=1,
-        .stride=stride,
+        .stride=stride,8
         .es=td.data()+2,
     };
     mat_copy(NN_INPUT(nn),mat_row(ti,1));
