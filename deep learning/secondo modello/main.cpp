@@ -42,6 +42,7 @@ int main(){
         double c=nn_cost(nn,ti,to);
 //        nn_finite_diff(nn,b,eps,ti,to);
         NN_backProgSimoid(nn,derivata,ti,to);
+        NN_PRINT(derivata);
 //        nn_learn(nn,derivata,rate);
        nn_adam(nn,derivata,rate);
        if(i%1000)
