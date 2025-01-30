@@ -45,8 +45,9 @@ int main(){
         NN_PRINT(derivata);
 //        nn_learn(nn,derivata,rate);
        nn_adam(nn,derivata,rate);
-       if(i%1000)
+//       if(i%1000)
         std::cout<<std::endl<<i<<")"<<nn_cost(nn,ti,to)<<std::endl;
+        std::cout<<"prova";
     }
     std::cout<<"_____________________________________________________________________________________________________________";
     for(size_t i=0;i<2;++i){
